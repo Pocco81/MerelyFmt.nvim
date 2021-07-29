@@ -1,17 +1,17 @@
 local M = {}
 
 M.formatters = {
-    "luaformatter",
-    "luafmt",
-    "luaformat",
-    "stylua",
-    "yapf",
-    "autopep8",
-    "black",
-    "isort",
-    "docformatter",
-    "pyment",
-    "pydevf"
+    ["luaformatter"] = {"lua"},
+    ["luafmt"] = {"lua"},
+    ["luaformat"] = {"lua"},
+    ["stylua"] = {"lua"},
+    ["yapf"] = {"python"},
+    ["autopep8"] = {"python"},
+    ["black"] = {"python"},
+    ["isort"] = {"python"},
+    ["docformatter"] = {"python"},
+    ["pyment"] = {"python"},
+    ["pydevf"] = {"python"},
 }
 
 return M
