@@ -52,7 +52,7 @@ command! -nargs=+ -complete=custom,s:complete_args_uninstall MFUninstall call v:
 command! -nargs=0 MFList call v:lua.require("merelyfmt.main").main('list')
 
 " Formatting
-command! -nargs=+ -complete=custom,s:complete_args_formatters MFFormat call v:lua.require("merelyfmt.main").main('format',mfcmds#get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_formatters MFFormat call v:lua.require("merelyfmt.main").main('format',mfcmds#get_first_arg(<f-args>))
 " }}}
 
 let &cpo = s:save_cpo " restore after
