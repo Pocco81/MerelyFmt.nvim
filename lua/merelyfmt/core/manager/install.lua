@@ -35,7 +35,6 @@ function M.install_formatter(formatter)
         local shell = o.shell
         o.shell = "/bin/bash"
 
-        cmd(fmt.installer["before"])
         fn.termopen("set -e\n" .. fmt.installer["install"], {["cwd"] = fmt_path, ["on_exit"] = onExit})
         o.shell = shell
 
