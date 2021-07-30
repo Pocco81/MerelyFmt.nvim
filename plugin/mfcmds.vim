@@ -17,11 +17,11 @@ endfunction
 " aa = available arguments
 
 function! mfcmds#available_args_install() abort
-	return luaeval('require("merelyfmt.utils.completions.aa_install").available_commands()')
+	return luaeval('require("merelyfmt.utils.completion.aa_install").available_commands()')
 endfunction
 
 function! mfcmds#available_args_uninstall() abort
-	return luaeval('require("merelyfmt.utils.completions.aa_uninstall").available_commands()')
+	return luaeval('require("merelyfmt.utils.completion.aa_uninstall").available_commands()')
 endfunction
 " }}}
 
