@@ -15,11 +15,9 @@ M.commands = {
 
 M.installer = {
     install = [[
-
+		npm install lua-fmt
 	]],
-    uninstall = [[
-
-	]]
+    uninstall = "simple"
 }
 
 return M
