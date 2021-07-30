@@ -24,4 +24,21 @@ function M.get_formatters_by_lang()
 	return formatters_by_lang
 end
 
+
+function M.get_installed_formatters()
+
+	local opts = require("merelyfmt.config").options
+	local formatters_list = M.get_formatters()
+	local utils_paths = require("merelyfmt.utils.paths")
+    local installed_formatters = {}
+
+    for formatter, _ in pairs(formatters_list) do
+        if (utils_paths.assert_dir(opts["installation_path"] .. formatter .. "/") == 1) then
+			table.insert(installed_formatters, formatter)
+        end
+    end
+
+	return installed_formatters
+end
+
 return M
