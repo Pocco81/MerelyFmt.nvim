@@ -200,6 +200,11 @@ mf_api.get_formatters_by_lang()
 ```
 > Returns a table with available formatters organized by langs.
 
+```lua
+mf_api.get_installed_formatters()
+```
+> Returns a table with the installed formatters.
+
 # 🐬 Configuration
 Although settings already have self-explanatory names, here is where you can find info about each one of them and their classifications! 
 
