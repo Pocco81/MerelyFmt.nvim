@@ -1,4 +1,4 @@
-<h1 align="center">🪵 MerelyFmt.nvim</h1>
+<h1 align="center">🐇 MerelyFmt.nvim</h1>
 
 <p align="center">
 	A NeoVim plugin for formatting code and managing formatters.
