@@ -6,10 +6,8 @@ local formatters_list = require("merelyfmt.formatters.formatters")["formatters"]
 local opts = require("merelyfmt.config").options
 
 function M.available_commands()
-
     local arguments = {}
-	local available_formatters = {}
-
+    local available_formatters = {}
 
     for formatter, _ in pairs(formatters_list) do
         if (utils_paths.assert_dir(opts["installation_path"] .. formatter .. "/") == 1) then
@@ -18,9 +16,9 @@ function M.available_commands()
     end
 
     for formatter, _ in pairs(available_formatters) do
-		if (utils_tbl.tbl_has_element(formatters_list[formatter], vim.o.filetype, "value")) then
+        if (utils_tbl.tbl_has_element(formatters_list[formatter], vim.o.filetype, "value")) then
             arguments[formatter] = formatter
-		end
+        end
     end
 
     return vim.tbl_keys(arguments)
