@@ -6,7 +6,7 @@ local o = vim.o
 
 local utils_tbl = require("merelyfmt.utils.tbls")
 local utils_paths = require("merelyfmt.utils.paths")
-local formatters_list = require("merelyfmt.formatters.formatters")
+local formatters_list = require("merelyfmt.formatters.formatters")["formatters"]
 local installation_path = require("merelyfmt.config").options["installation_path"]
 
 function M.uninstall_formatter(formatter)
