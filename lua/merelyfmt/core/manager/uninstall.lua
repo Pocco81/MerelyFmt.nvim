@@ -34,7 +34,6 @@ function M.uninstall_formatter(formatter)
                 local shell = o.shell
                 o.shell = "/bin/bash"
 
-                cmd(fmt.installer["before"])
                 fn.termopen("set -e\n" .. fmt.installer["uninstall"], {["cwd"] = fmt_path, ["on_exit"] = onExit})
                 o.shell = shell
 
