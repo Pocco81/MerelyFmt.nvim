@@ -170,13 +170,13 @@ All the commands follow the *camel casing* naming convention and have the `MF` p
 
 For managing the formatters:
 
-+ `:FMInstall <formatter>` installs `<formatter>`.
-+ `:FMUninstall <formatter>` uninstalls `<formatter>`.
-+ `:FMList` lists installed formatters.
++ `:MFInstall <formatter>` installs `<formatter>`.
++ `:MFUninstall <formatter>` uninstalls `<formatter>`.
++ `:MFList` lists installed formatters.
 
 For using the formatters:
 
-+ `:FMFormat <formatter>` formatters current buffer with `<formatter>`.
++ `:MFFormat <formatter>` formatters current buffer with `<formatter>`.
 
 ## API
 
