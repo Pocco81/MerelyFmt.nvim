@@ -23,6 +23,10 @@ endfunction
 function! mfcmds#available_args_uninstall() abort
 	return luaeval('require("merelyfmt.utils.completion.aa_uninstall").available_commands()')
 endfunction
+
+function! mfcmds#available_args_formatters() abort
+	return luaeval('require("merelyfmt.utils.completion.aa_formatters").available_commands()')
+endfunction
 " }}}
 
 " Tab Completion {{{
@@ -33,13 +37,22 @@ endfunction
 function! s:complete_args_uninstall(arg, line, pos) abort
 	return join(mfcmds#available_args_uninstall(), "\n")
 endfunction
+
+function! s:complete_args_formatters(arg, line, pos) abort
+	return join(mfcmds#available_args_formatters(), "\n")
+endfunction
 " }}}
 
 
 " Interface {{{
+
+" Management
 command! -nargs=+ -complete=custom,s:complete_args_install MFInstall call v:lua.require("merelyfmt.main").main('install',mfcmds#get_first_arg(<f-args>))
 command! -nargs=+ -complete=custom,s:complete_args_uninstall MFUninstall call v:lua.require("merelyfmt.main").main('uninstall',mfcmds#get_first_arg(<f-args>))
 command! -nargs=0 MFList call v:lua.require("merelyfmt.main").main('list')
+
+" Formatting
+command! -nargs=+ -complete=custom,s:complete_args_formatters MFFormat call v:lua.require("merelyfmt.main").main('format',mfcmds#get_first_arg(<f-args>))
 " }}}
 
 let &cpo = s:save_cpo " restore after
