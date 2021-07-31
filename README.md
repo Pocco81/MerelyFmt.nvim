@@ -244,7 +244,7 @@ The process for creating new formatters is fairly simple:
 1. Fork the repo and write the formatter
 + Create a file with the name of the formatter under lua/merelyfmt/formatters/<your_formatter>.lua and copy [`luafmt`](https://github.com/Pocco81/MerelyFmt.nvim/blob/dev-formatter/lua/merelyfmt/formatters/luafmt.lua) to use as a template.
 + Replace the values from the tables where `M.config` has configuration values for the formatter (most importantly the path to the binary), `M.commands` has the commands [with arguments] for executng the formatter for x given language (keep in mind some formatters work for more than one language) and `M.installer` has the "script" for installing and uninstalling the formatter (where "simple" under `uninstall` means to simply remove the dir where it's located. Replace it with other commands in case the removing process needs to be more sophisticated)
-2. Add it to [this list](https://github.com/Pocco81/MerelyFmt.nvim/blob/dev-formatter/lua/merelyfmt/formatters/formatters.lua) of formatters, where the `key` is the name of the formatter and the `value` is a table with langs it works for.
+2. Add it to [the list of formatters](https://github.com/Pocco81/MerelyFmt.nvim/blob/dev-formatter/lua/merelyfmt/formatters/formatters.lua), where the `key` is the name of the formatter and the `value` is a table with langs it works for.
 3. Make a PR to the `dev-formatter` branch
 
 # 💭 Inspirations
