@@ -11,7 +11,7 @@ function M.get_formatters_by_lang()
 
     for formatter, _ in pairs(formatters_list) do
 		for _, lang in pairs(formatters_list[formatter]) do
-			if not (utils_tbl.tbl_has_element(formatters_by_lang, lang, "key")) then
+			if not (utils_tbl.tbl_has_element(formatters_by_lang, lang, "index")) then
 				formatters_by_lang[lang] = {}
 			end
 
