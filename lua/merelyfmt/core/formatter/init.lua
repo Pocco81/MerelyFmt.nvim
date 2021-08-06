@@ -1,17 +1,38 @@
-local Formatter = {}
+local M = {}
 
 local api = require("merelyfmt.api.formatters")
 local opts = require("merelyfmt.config").options
 local tbl_utils = require("merelyfmt.utils.tbls")
+local opt_local = vim.opt_local
 
-Formatter.format = function(formatter)
-    if not vim.opt_local.modifiable:get() then
-        error("Buffer is not modifiable")
+
+local function assert_conditions()
+
+	local msg
+	local err = false
+
+    if not opt_local.modifiable:get() then
+        msg = "MerelyFmt: Failed to format current buffer becuase it is not modifiable"
+		err = true
     end
 
-    if vim.opt_local.readonly:get() then
-        error("Buffer is read-only")
+    if opt_local.readonly:get() then
+        msg = "MerelyFmt: Failed to format current buffer becuase it is read-only"
+		err = true
     end
+
+	return err, msg
+end
+
+function M.format(formatter)
+
+	local err, msg = assert_conditions()
+	if err then error(msg) end
+
+	-- procedure:
+	-- 1. try passed formatter
+	-- 2. try default formatter if any (passed by user)
+	-- 3. try every formatter
 
     local file, filetype = vim.fn.expand("%"), vim.bo.filetype
     -- TODO: apply a filter to installed formatters
@@ -28,7 +49,7 @@ Formatter.format = function(formatter)
         if tbl_utils.tbl_has_element(opts.default_formatters, filetype, "value") then
             -- Use the default formatter for the current filetype
             formatter = opts.default_formatters[filetype]
-            print("Using " .. formatter .. " formatter for " .. filetype)
+            print("MerelyFmt: Using " .. formatter .. " formatter for " .. filetype)
         else
             local failed_formatting, successful_formatting
             for _, fmt in ipairs(formatters) do
@@ -40,8 +61,8 @@ Formatter.format = function(formatter)
             end
         end
     else
-        print("Using passed formatter")
+        print("MerelyFmt: Using passed formatter")
     end
 end
 
-return Formatter
+return M
